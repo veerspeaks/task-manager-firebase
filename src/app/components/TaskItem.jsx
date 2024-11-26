@@ -35,10 +35,12 @@ export default function TaskItem({ task }) {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
-      className="bg-white/80 backdrop-blur-sm border border-white/20 p-4 mb-3 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 flex justify-between items-center"
+      className={`bg-white/80 backdrop-blur-sm border border-white/20 p-4 mb-3 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 ${
+        !isEditing ? 'flex justify-between items-center' : ''
+      }`}
     >
-      <AnimatePresence mode="wait">
-        {isEditing ? (
+      {isEditing ? (
+        <div className="flex flex-col gap-2 w-full">
           <motion.input
             key="input"
             initial={{ opacity: 0 }}
@@ -46,23 +48,9 @@ export default function TaskItem({ task }) {
             exit={{ opacity: 0 }}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="bg-white/20 border border-white/30 p-2 flex-1 mr-2 rounded-md focus:ring-2 focus:ring-[#FFB200] focus:border-transparent outline-none text-black"
+            className="bg-white/20 border border-white/30 p-2 w-full rounded-md focus:ring-2 focus:ring-[#FFB200] focus:border-transparent outline-none text-black"
           />
-        ) : (
-          <motion.span
-            key="text"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="text-black"
-          >
-            {task.title}
-          </motion.span>
-        )}
-      </AnimatePresence>
-      <div className="flex gap-3">
-        {isEditing ? (
-          <>
+          <div className="flex gap-3 justify-center">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -79,9 +67,20 @@ export default function TaskItem({ task }) {
             >
               <FiX size={20} />
             </motion.button>
-          </>
-        ) : (
-          <>
+          </div>
+        </div>
+      ) : (
+        <>
+          <motion.span
+            key="text"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="text-black"
+          >
+            {task.title}
+          </motion.span>
+          <div className="flex gap-3">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -98,9 +97,9 @@ export default function TaskItem({ task }) {
             >
               <FiTrash2 size={18} />
             </motion.button>
-          </>
-        )}
-      </div>
+          </div>
+        </>
+      )}
     </motion.div>
   );
 }

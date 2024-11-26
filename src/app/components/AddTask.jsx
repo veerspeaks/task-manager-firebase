@@ -48,12 +48,12 @@ export default function AddTask() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         onSubmit={handleAddTask}
-        className="flex gap-2"
+        className="flex gap-2 flex-col md:flex-row items-center"
       >
         <input
           type="text"
           placeholder="New Task"
-          className="bg-white/20 border border-white/30 p-3 flex-1 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#FFB200] transition-all duration-200"
+          className="bg-white/20 border border-white/30 p-3 flex-1 rounded-lg text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-[#FFB200] transition-all duration-200 w-full md:w-auto"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           disabled={loading}
@@ -62,7 +62,7 @@ export default function AddTask() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           disabled={loading}
-          className="bg-gradient-to-r from-[#FFB200] to-[#EB5B00] text-white py-2 px-6 rounded-lg shadow-md transition-all duration-200 disabled:opacity-50"
+          className="bg-gradient-to-r from-[#FFB200] to-[#EB5B00] text-white py-2 px-6 rounded-lg shadow-md transition-all duration-200 disabled:opacity-50 md:w-auto w-1/2"
         >
           {loading ? <LoadingSpinner /> : 'Add'}
         </motion.button>
