@@ -74,7 +74,7 @@ export default function LoginPage() {
           </motion.button>
         </form>
         <p className="mt-6 text-center text-white">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-[#FFB200] hover:text-[#EB5B00] transition-colors duration-200">
             Sign Up
           </Link>
