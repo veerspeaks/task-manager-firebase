@@ -1,11 +1,11 @@
 'use client';
 
-import RequireAuth from './components/RequireAuth';
-import TaskList from './components/TaskList';
-import NavBar from './components/NavBar';
+import RequireAuth from '../components/RequireAuth';
+import TaskList from '../components/TaskList';
+import NavBar from '../components/NavBar';
 import { motion } from 'framer-motion';
-  
-export default function Home() {
+
+export default function DashboardPage() {
   return (
     <RequireAuth>
       <div className="min-h-screen bg-gradient-to-br from-[#640D5F] via-[#D91656] to-[#EB5B00]">
