@@ -29,7 +29,7 @@ export default function NavBar() {
           animate={{ opacity: 1 }}
           className="text-2xl font-bold bg-gradient-to-r from-[#FFB200] to-[#EB5B00] bg-clip-text text-transparent"
         >
-          TaskMaster
+          TaskManager
         </motion.h1>
         <motion.button
           whileHover={{ scale: 1.05 }}
